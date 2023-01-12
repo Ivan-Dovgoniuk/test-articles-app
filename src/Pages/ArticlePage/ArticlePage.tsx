@@ -1,19 +1,22 @@
-import React from 'react'
+import { Link, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { RootState } from '../../store';
+import { IArticle } from '../../Types/types';
+
 import Arrow from '../../img/Arrow.png'
 import './ArticlePage.scss'
 
 import "@fontsource/montserrat";
 
-import { Link, useParams } from 'react-router-dom';
-import { RootState } from '../../store';
-import { useSelector } from 'react-redux';
-import { IArticle } from '../../Types/types';
+
 
 export default function ArticlePage() {
 
     const articlesLoadingStatus = useSelector((state:RootState)=>state.articles.articlesLoadingStatus)
-    const params = useParams();
     const articles = useSelector((state:RootState)=>state.articles.articles)
+    const params = useParams();
+ 
 
     if(articlesLoadingStatus == 'loading' || !articles.length){
         return <p>Loading...</p>
@@ -38,7 +41,6 @@ export default function ArticlePage() {
                         <img src={Arrow} alt="" style={{width:"12px",height:"10px",transform:"rotate(180deg)",marginRight:'6px'}} />
                          Back to homepage
                     </Link>
-
             </div>
         </div>
     </>

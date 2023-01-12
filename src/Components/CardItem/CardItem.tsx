@@ -1,16 +1,22 @@
+import { Link } from 'react-router-dom';
+
+import { useCustomDate } from '../../customHooks/date.hook';
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import {CardActionArea, CardActions } from '@mui/material';
 
 import './CardItem.scss'
+import "@fontsource/montserrat"
+
 import CalendarIcon from '../../img/calendar-icon.png'
 import Arrow from '../../img/Arrow.png'
-import { Link } from 'react-router-dom';
 
 import Highlighter from "react-highlight-words";
 
-import "@fontsource/montserrat";
+
+
 
 
 type CardItemProps = {
@@ -30,21 +36,7 @@ export default function CardItem({id,title,image,description,date,searchWords}:C
   const shortDescription = description.slice(0,100) + descriptionEtc
   const shortTitle = title.slice(0,100) + titleEtc
 
-  const customDate = new Date(date)
-
-  const day = customDate.getDate();
-  const month = customDate.toLocaleString('default', { month: 'long' });
-  const year = customDate.getFullYear();
-
-  const daySuffix = function(day:number) {
-    if (day > 3 && day < 21) return 'th';
-    switch (day % 10) {
-      case 1:  return "st";
-      case 2:  return "nd";
-      case 3:  return "rd";
-      default: return "th";
-    }
-  }
+  const {day,month,year,daySuffix} = useCustomDate(date)
 
     return (
       <Card className='card' sx={{ maxWidth: 400, width:'full'}}>
@@ -54,7 +46,7 @@ export default function CardItem({id,title,image,description,date,searchWords}:C
               component="img"
               height="217"
               image={image}
-              alt="green iguana"
+              alt="thumbnail image"
             />
             <CardContent>
               <div className='card_date'>
@@ -79,7 +71,7 @@ export default function CardItem({id,title,image,description,date,searchWords}:C
         <CardActions sx={{padding:'16px', paddingBottom:0}}>
           <Link to={`/acticles/${id}`} className='card_link'>
               <p>Read more</p>
-              <img src={Arrow} alt="" />
+              <img src={Arrow} alt="arrow" />
           </Link>
         </CardActions>
       </Card>

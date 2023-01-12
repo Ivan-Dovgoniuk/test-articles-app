@@ -1,26 +1,28 @@
+@mixin text-style( $font-size, $font-weight, $line-height ) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+}
 
-.search{
+.search {
     width: 100%;
     font-family: 'Montserrat';
-    font-style: normal;
     margin-top: 35px;
     border-bottom: 1px solid #EAEAEA;
 
-    &_wrapper{
+    &_wrapper {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         padding: 0px;
         gap: 10px;
     }
-    &_title{
+    &_title {
+        @include text-style(16px, 600, 20px);
         margin: 0;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
         color: #363636;
     }
-    &_field{
+    &_field {
         display: flex;
         align-items: center;
         height: 50px;
@@ -29,31 +31,26 @@
         max-width: 600px;
         width: 100%;
         
-        input{
-            border:0;
+        input {
+            @include text-style(16px, 400, 150%);
             border: 1px solid #EAEAEA;
             border-radius: 5px;
             height: 100%;
             background: #FFFFFF;
             box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
             padding-left: 60px;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 150%;
             color: #575757;
             max-width: 600px;
             width:100%;
         }
     }
-    &_icon{
+    &_icon {
         position: absolute;
         left: 20px;
     }
 
-    &_result{
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
+    &_result {
+        @include text-style(16px, 600, 20px);
         color: #363636;
         margin-bottom: 5px;
     }

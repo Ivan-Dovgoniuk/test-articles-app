@@ -11,7 +11,7 @@ type SearchFieldProps = {
 
 export default function SearchField({searchText,setSearchText}:SearchFieldProps) {
 
-    const {articles,numberOfArticles} = useSelector((state:RootState)=>state.articles)
+    const {numberOfArticles} = useSelector((state:RootState)=>state.articles)
 
   return (
     <div className='search'>
