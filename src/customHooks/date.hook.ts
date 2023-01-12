@@ -4,7 +4,7 @@ export const useCustomDate =(date:string)=>{
   const customDate = new Date(date)
 
   const day = customDate.getDate();
-  const month = customDate.toLocaleString('default', { month: 'long' });
+  const month = customDate.toLocaleString('en-US', { month: 'long' });
   const year = customDate.getFullYear();
 
   const daySuffix = function(day:number) {
