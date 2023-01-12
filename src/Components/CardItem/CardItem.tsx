@@ -7,6 +7,7 @@ import './CardItem.scss'
 import CalendarIcon from '../../img/calendar-icon.png'
 import Arrow from '../../img/Arrow.png'
 import { Link } from 'react-router-dom';
+
 import Highlighter from "react-highlight-words";
 
 import "@fontsource/montserrat";
@@ -20,7 +21,6 @@ type CardItemProps = {
   date:string,
   searchWords:string[]
 }
-
 
 export default function CardItem({id,title,image,description,date,searchWords}:CardItemProps) {
 
